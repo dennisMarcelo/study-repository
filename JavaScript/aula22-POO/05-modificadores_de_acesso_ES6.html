@@ -1,0 +1,40 @@
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Extends</title>
+</head>
+<body>
+    
+</body>
+<script>
+    //Tem que estudar mais sobre isso.o professo não explico muito bem. 
+    class contaPoupana{
+        constructor(){
+        //nesta forma de se criar atributos privados não funciona muito bem. nada impeda que alguem venha e mude '._aniversário'
+            this._aniversario = new Date().getTime();
+        }
+
+        get aniversario(){
+            console.log('testando o get')
+            console.log(this._aniversario)
+            return this._aniversario
+        }
+        
+        set aniversario(data){
+            if(typeof data === 'number'){
+                return this.aniversario = data
+            }else{
+                return console.log('não vou setar isso!')
+            }
+        }
+
+    }
+
+    let cP1 = new contaPoupana()
+    cP1.aniversario
+    cP1.aniversario = 'helo word'
+    cP1.aniversario
+</script>
+</html>

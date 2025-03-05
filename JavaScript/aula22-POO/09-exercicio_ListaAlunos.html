@@ -1,0 +1,43 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Alunos</title>
+    
+    <script>
+        window.addEventListener('load', function(){
+            //instanciando novo objeto
+            var aluno1 = new Aluno('dennis',10)
+            var aluno2 = new Aluno('stephany', 2)
+            var aluno3 = new Aluno('Elisa')
+            
+            aluno1.addFalta()
+            console.table(aluno1)
+
+        })  
+        
+        //classe construtora alno  
+        class Aluno{
+            constructor(nome, numerosFaltas){
+                this.nome = nome;
+                this._numerosFaltas = numerosFaltas | 0 ;
+
+                this.addFalta = function(falta){
+                    return (falta)? this._numerosFaltas += falta : this._numerosFaltas += 1; 
+                }
+            }
+        }
+
+        class ListaAlunos{
+            constructor(){
+                
+            }
+        }
+    </script>
+</head>
+<body>
+    
+</body>
+
+</html>

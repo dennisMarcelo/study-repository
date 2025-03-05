@@ -1,0 +1,38 @@
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Extends</title>
+</head>
+<body>
+    
+</body>
+<script>
+    class BankAccunt{
+        constructor(name, number){
+            this.name = name;
+            this.number = number;
+            this.saldo = 0;
+        }
+        
+        depositar(saldo){    //note que os métodos vão fora do constructor.
+            this.saldo +=saldo;
+        }
+    };
+
+    class CheckingAccount extends BankAccunt{    // O extends diz que o 'CheckingAccount' herda de 'BankAccount'. Então é feita uma ligação usando {}
+        constructor(name, number){           //O constructor recebe como parametro 'name e number'.
+            super(name, number);    //E então é chmado o construtur do pai usando a palavra reservado 'super', depois passado como parametro 'name e number'
+            this.limite=1000000;     //novo atributo
+        }                              
+        
+    }
+
+    let account1 = new CheckingAccount('dennis', 38);
+    account1.depositar(1000000);
+    console.log(account1)
+//bonus não se engane é todo prototipo.
+//add no ES2015
+</script>
+</html>

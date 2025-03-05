@@ -1,0 +1,36 @@
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    //clase no ES5 
+    function Lampada(x) {
+        var acesa = x;
+        this.iluminando = function(){
+            return (acesa === true) ? console.log("A lampada acesa") : console.log("A lampada apgada");  
+        }
+    }
+    var Lampada1 = new Lampada(true);
+    Lampada1.iluminando()
+    
+    //classe no ES6
+    //você não pode utilizar essa classe diretamente sem instanciar ela, pois retorna erro.
+    class Interruptor{
+        constructor (){
+            this.ligaDesliga = function(e){
+                var x = (e === true)? false : true
+                return console.log(x)
+            }
+        }
+    }
+    var Interruptor1  = new Interruptor()
+    Interruptor1.ligaDesliga(false)
+
+</script>
+</html>

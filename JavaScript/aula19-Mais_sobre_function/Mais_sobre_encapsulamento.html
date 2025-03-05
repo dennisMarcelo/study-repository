@@ -1,0 +1,31 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    function teste(){
+        console.log(this);
+
+        //se você precisar dar suporte para o IE use essa forma
+        var _this = this;
+        setTimeout(function(){
+             //Aqui se voce não armazernar o contexto de this em uma variável ele vai se perder e vai retornar o this do window
+             //use a variável _this criada acima para pegar o this do obj 
+            console.log(this);
+        }, 1000);
+        
+        //Utilizando o arrow function o contexto de this não se perde 
+        setTimeout(() =>{
+            console.log(this);
+        }, 1000)
+    }
+    var obj = {foo: teste};
+    obj.foo()
+</script>
+</html>

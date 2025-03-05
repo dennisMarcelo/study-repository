@@ -1,0 +1,7 @@
+<h1>Lista de Posts:</h1>
+
+{{#each posts}}
+    <h1>{{dataValues.titulo}}</h1>
+    <textarea cols="30" rows="20">{{dataValues.conteudo}}</textarea><br>
+    <a href="/deletar/{{dataValues.id}}"><button>deletar</button></a>
+{{/each}}

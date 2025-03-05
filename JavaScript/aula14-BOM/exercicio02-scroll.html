@@ -1,0 +1,82 @@
+<!doctype html>
+<html>
+    <head>
+        <title>Logica de Programação Javascript</title>
+        <meta charset="utf-8">
+        
+        <style type="text/css">
+        body{
+            padding-top: 150px;
+        }
+		.menu{
+			height: 150px;
+			background: red;
+			width: 100%;
+			transition: all 1s;
+			position: fixed;
+			top: 0;
+			left: 0;
+			opacity: .6;
+		}		
+		.fx .menu{
+			height: 50px;
+			opacity: 1;
+		}
+
+	</style>
+    <script>
+        window.addEventListener("load", ()=>{
+           var $body = document.querySelector('body')
+            window.addEventListener("scroll", ()=>{
+                
+                if(pageYOffset>38 && !has() ){
+                    $body.classList.add('fx');
+                    console.log("add")
+                }
+                
+                if(pageYOffset<38 && has()){
+                    $body.classList.remove('fx');
+                    console.log("rm")
+                }
+            })
+            function has(){
+                return !!document.querySelector(".fx");
+            }
+            
+        })
+    </script>  
+    </head>
+    <body>
+       
+       <div class="menu" id="divMenu"></div>
+       
+       
+        <h1>Javascript Completo</h1>
+        
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Praesentium, ipsa. Repellendus suscipit aliquam amet deserunt similique minus quia, ipsum sit nulla sapiente corrupti hic alias, atque commodi libero, sed sint!</p>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Praesentium, ipsa. Repellendus suscipit aliquam amet deserunt similique minus quia, ipsum sit nulla sapiente corrupti hic alias, atque commodi libero, sed sint!</p>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Praesentium, ipsa. Repellendus suscipit aliquam amet deserunt similique minus quia, ipsum sit nulla sapiente corrupti hic alias, atque commodi libero, sed sint!</p>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Praesentium, ipsa. Repellendus suscipit aliquam amet deserunt similique minus quia, ipsum sit nulla sapiente corrupti hic alias, atque commodi libero, sed sint!</p>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Praesentium, ipsa. Repellendus suscipit aliquam amet deserunt similique minus quia, ipsum sit nulla sapiente corrupti hic alias, atque commodi libero, sed sint!</p>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Praesentium, ipsa. Repellendus suscipit aliquam amet deserunt similique minus quia, ipsum sit nulla sapiente corrupti hic alias, atque commodi libero, sed sint!</p>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Praesentium, ipsa. Repellendus suscipit aliquam amet deserunt similique minus quia, ipsum sit nulla sapiente corrupti hic alias, atque commodi libero, sed sint!</p>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Praesentium, ipsa. Repellendus suscipit aliquam amet deserunt similique minus quia, ipsum sit nulla sapiente corrupti hic alias, atque commodi libero, sed sint!</p>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Praesentium, ipsa. Repellendus suscipit aliquam amet deserunt similique minus quia, ipsum sit nulla sapiente corrupti hic alias, atque commodi libero, sed sint!</p>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Praesentium, ipsa. Repellendus suscipit aliquam amet deserunt similique minus quia, ipsum sit nulla sapiente corrupti hic alias, atque commodi libero, sed sint!</p>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Praesentium, ipsa. Repellendus suscipit aliquam amet deserunt similique minus quia, ipsum sit nulla sapiente corrupti hic alias, atque commodi libero, sed sint!</p>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Praesentium, ipsa. Repellendus suscipit aliquam amet deserunt similique minus quia, ipsum sit nulla sapiente corrupti hic alias, atque commodi libero, sed sint!</p>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Praesentium, ipsa. Repellendus suscipit aliquam amet deserunt similique minus quia, ipsum sit nulla sapiente corrupti hic alias, atque commodi libero, sed sint!</p>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Praesentium, ipsa. Repellendus suscipit aliquam amet deserunt similique minus quia, ipsum sit nulla sapiente corrupti hic alias, atque commodi libero, sed sint!</p>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Praesentium, ipsa. Repellendus suscipit aliquam amet deserunt similique minus quia, ipsum sit nulla sapiente corrupti hic alias, atque commodi libero, sed sint!</p>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Praesentium, ipsa. Repellendus suscipit aliquam amet deserunt similique minus quia, ipsum sit nulla sapiente corrupti hic alias, atque commodi libero, sed sint!</p>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Praesentium, ipsa. Repellendus suscipit aliquam amet deserunt similique minus quia, ipsum sit nulla sapiente corrupti hic alias, atque commodi libero, sed sint!</p>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Praesentium, ipsa. Repellendus suscipit aliquam amet deserunt similique minus quia, ipsum sit nulla sapiente corrupti hic alias, atque commodi libero, sed sint!</p>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Praesentium, ipsa. Repellendus suscipit aliquam amet deserunt similique minus quia, ipsum sit nulla sapiente corrupti hic alias, atque commodi libero, sed sint!</p>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Praesentium, ipsa. Repellendus suscipit aliquam amet deserunt similique minus quia, ipsum sit nulla sapiente corrupti hic alias, atque commodi libero, sed sint!</p>
+        
+        
+        
+  
+        
+    </body>
+</html>

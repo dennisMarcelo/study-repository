@@ -1,0 +1,81 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>testando BOM</title>
+    <script type="text/javascript">
+        
+           //esse sempre uso então...
+           window.addEventListener("load", ()=>{
+                console.log('load disparado');
+            });
+            //
+            window.addEventListener("DOMContentLoaded", ()=>{
+                console.log('DOMContentLoaded disparado');
+            });
+           //se voce diminuir ou aumentar o navegador ele dispara
+            window.addEventListener("resize", (e)=>{
+                console.log('resize disparado');
+                console.log(e);
+            });
+           //evento disparado na scrollagem 
+            window.addEventListener("scroll", (e)=>{
+                console.log("scroll disparado");
+                console.log(e);
+                console.log("scroll Y", pageYOffset);
+            });
+           //disparado quando se fecha a página 
+            window.addEventListener("unload", ()=>{
+                console.log("unload disparado");
+                ;
+            });
+           //disparado quando se fecha a página
+            window.addEventListener("beforeunload", ()=>{
+                console.log("beforeunload disparado");
+                ;
+            })
+    </script>
+</head>
+<body>
+    <p>testando bom na pagina </p>
+    <p>testando bom na pagina </p>
+    <p>testando bom na pagina </p>
+    <p>testando bom na pagina </p>
+    <p>testando bom na pagina </p>
+    <p>testando bom na pagina </p>
+    <p>testando bom na pagina </p>
+    <p>testando bom na pagina </p>
+    <p>testando bom na pagina </p>
+    <p>testando bom na pagina </p>
+    <p>testando bom na pagina </p>
+    <p>testando bom na pagina </p>
+    <p>testando bom na pagina </p>
+    <p>testando bom na pagina </p>
+    <p>testando bom na pagina </p>
+    <p>testando bom na pagina </p>
+    <p>testando bom na pagina </p>
+    <p>testando bom na pagina </p>
+    <p>testando bom na pagina </p>
+    <p>testando bom na pagina </p>
+    <p>testando bom na pagina </p>
+    <p>testando bom na pagina </p>
+    <p>testando bom na pagina </p>
+    <p>testando bom na pagina </p>
+    <p>testando bom na pagina </p>
+    <p>testando bom na pagina </p>
+    <p>testando bom na pagina </p>
+    <p>testando bom na pagina </p>
+    <p>testando bom na pagina </p>
+    <p>testando bom na pagina </p>
+    <p>testando bom na pagina </p>
+    <p>testando bom na pagina </p>
+    <p>testando bom na pagina </p>
+    <p>testando bom na pagina </p>
+    <p>testando bom na pagina </p>
+    <p>testando bom na pagina </p>
+    <p>testando bom na pagina </p>
+    <p>testando bom na pagina </p>
+    <p>testando bom na pagina </p>
+    <p>testando bom na pagina </p>
+</body>
+</html>

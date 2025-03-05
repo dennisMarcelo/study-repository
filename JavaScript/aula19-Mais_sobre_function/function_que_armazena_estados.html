@@ -1,0 +1,22 @@
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=[device-width], initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    //sempre que é chamada a função, é armazenada o status na variável 'closeopen'
+    //se 
+    //aqui é utilizado a mesma ideia de encapsulamento para
+        var closeOpen = (function(){
+            var status = 'is-close';
+            return function(){
+                status = (status === 'is-close') ? 'is-open' : 'is-close';
+                return status
+            }
+        })()
+</script>
+</html>

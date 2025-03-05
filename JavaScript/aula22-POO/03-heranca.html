@@ -1,0 +1,33 @@
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    //perceba que o 'atributo acesa' ta fora da 'class interrupor'.
+    //para que o 'método ligaDesliga' tenha acesso ao 'atributo acesa'
+    //é preciso fazer com que 'Lampada' herde de 'interruptor' o método ligaDesliga
+    // e tornar publico o 'atributo acesa' usando o this
+    function Lampada(e) {
+        this.acesa = e;
+    }
+    
+    function Interruptor (){
+        this.ligaDesliga = function(){
+            return (this.acesa === true) ? console.log("A lampada acesa") : console.log("A lampada apgada");
+        }
+    }
+
+    Lampada.prototype = new Interruptor()    //fazendo 'Lampada' herdar de 'Interruptor' o método 'ligaDesliga'  
+    var lampada1 = new Lampada(true) 
+    
+    console.log(lampada1 instanceof Lampada)   //verificando se A 'class Lampada' esta dentro de 'lapada1'
+    console.log(lampada1 instanceof Interruptor)   //verificando se A 'class interruptor' esta dentro de 'lapada1'
+    console.log(lampada1.ligaDesliga(false))
+</script>
+</html>

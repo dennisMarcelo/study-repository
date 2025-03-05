@@ -1,0 +1,32 @@
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>métodos e propriedades estaticos ES6</title>
+</head>
+<body>
+    
+</body>
+<script>
+  
+  function ConataPoupanca(nome, numero){
+    this.nome = nome;
+    this.numero = numero;
+  }
+  //Diferencte do ES6 para criar propriedades e métodos estaticos basta cria-los fora da função.
+  ConataPoupanca.juros = 20;
+  ConataPoupanca.verTipo = function(){
+      console.log("Esta é uma conta poupança")
+  };
+
+  var cp1 = new ConataPoupanca("dennis", 006)
+  //aqui vai os testes
+  console.log(cp1)
+  console.log(cp1.juros)
+  console.log(ConataPoupanca.juros)
+ConataPoupanca.verTipo()
+//o erro que da aqui é proposital
+cp1.verTipo()
+</script>
+</html>

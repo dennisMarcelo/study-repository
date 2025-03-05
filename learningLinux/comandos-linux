@@ -1,0 +1,114 @@
+inxi -Fxxx				//Mostra informações sobre o hardware 
+youtube-dl				//baixar videos do youtube, só é preciso passar a URL como parametro.a
+cat /etc/lsb-release			//verifica a versão atual do sistema mais detalhada.
+info					//todos comandos vc pode ver aqui
+ip addr show                   		//obtem o edereço de ip
+su -
+sudo su 				//entrar em modo de usuário root
+who					//mostra o usuáio do sistema
+hostname				//mostra o host do computador
+date					//(exempolo: date +' %a, %b ,%c ,%d')
+alias					//Permite ver os alias feitos 
+history					//histórico de comandos
+pwd					//diretoório atual.
+vim 					//editor de texto. pagina 118 ensina a usar o vi
+du -sh					//ver o tamanho do arquivo.
+/usr/share/man 				//todos os manuais do sitema ficam aqui! faça bom proveito :)
+useradd					//esse comando somente cria o novo usuário
+adduser					//Já esse cria um novo usuário e faz todas as configurações para vc(de preferencia em usar este).
+-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_variáveis de shell-_-_-_-_-_-_-_-_-_-_-_-_
+env					//Acessa variaveis de ambiente
+declare					//Obetem lista de variaveis de ambiente atuais e seus valores. pagina 84 - tabela com variáveis de ambiente.
+
+-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_aliases-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_
+alias nome="comando"			//cria aliases
+unalias [nome]				//exclui aliases
+		
+-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_criar ambiente perfeito no shell-_-_-_-_-_-_-_-_-_-_-_-_
+					//pagina 86 tabela com arquivos de configuração do shell
+PS1="[\s \t {\w}]"			//modifica caracteres de ambiente. pagina 88 - tabela com caracteres de ambiente
+tmout=[tempo]				//define o tempo em que o shell pode ficar inativo 
+PATH="[CAMINHO]"; export PATH		//adiciona caminhos temporarios a uma variável
+js="[caminho]" ; export js		//WAHTEVER, ele serve para criar atalho para um diretório
+		
+-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_obter informações-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_	
+[comando] --help|less
+info
+man [comando]
+
+-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_metacaracteres e operadores-_-_-_-_-_-_-_-_-_-_-_-_
+*		//procura qualquer caractere naquela 'posição'
+?		//localiza qualquer caractere em qualquer posição
+[]		//localiza qualquer um dos caracteres entre colchetes. pagina 100 -ensina a usalo.
+		
+-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_metacaracteres para redirecionamento de arquivos-_-_-_-_-_-_-_-_-_-_-_-_
+<		//direciona o conteudo de um arquivo para o comando
+>		//direciona a saida padrão de um comando para um arquivo. Ele apaga tudo e coloca os novos dados 
+2>		//direciona a menssagem padrão, como o erro padão, para o arquivo
+&>		//direciona a saída de um comando para um arquivo, adiciona a saída ao final do arquivo existente
+>>		//Ele adciona no final da linha do aquivo escolhido o texto ou arquivo de texto que você passo como parametro.
+
+-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_manipulação de diretórios-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_
+cd						//acessa diretório
+ls [opção] [caminho]				//lista arquivos. -R(mostra o que tem no diretório e nos subdiretórios). pagina 106 tem opções
+pwd						//mostra o diretório atual.
+mkdir [opção] [caminho]				//cria diretórios. 
+rmdir [caminho]					//apaga arquivos.
+
+-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_arquivos-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_
+touch [nome do arquivo]				//criar arquvos 
+cat [opção] [dieretório/caminho]		// Lê o arquivo. opções{-n (mostra o numero de linhas)}. Use o comando "zcat" para ver diretamente arquivos compactados com "gzip".
+mv [aqruivo origem] [destino]			//move arquivos. Ue a opção -i para perguntar se você realmente que realizar a operação 
+cp [arquivo origem] [destino]			//copia arquivos. Use a opção -i para perguntar se você realmente que realizar a operação
+rm [arquivo]					//exclui arquivos. Use a opção -i para perguntar se você realmente que realizar a operação
+
+-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_peissões de arquivos e diretŕios-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_
+chmod [permissão] [arquivos ou diretório]  	//pagina 109 explica como usar.
+umask [permissão] [arquivos ou diretório]	//pagina 111 explica como usar.
+chown [usr]					//altera a posse do arquivo. voce tambem pode mudar o grupo usando: chown [usr]:[grupo] 
+
+-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_procurar arquivos-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_
+find [diretório] -opcação [nome] 		//pagina 125 esnisa a usar o comando '-name' (muito útil por sinal). 
+	 	 -name				//localiza arquivos por nome	
+		 -iname				//use '*nome*'
+		 -size				//localiza arquivos por tamanho (ex: +10M, +1G, -100M -5G ...)
+		 -user				//procura arquivos por usuário (da para colocar uma condicional -not -or)
+		 -group 			//procura arquivos por grupo (da para colocar uma condicional -not -or)
+		 -perm				//localiza arquivos com base na permisão passada
+		 -mtime				//metadados em dias
+		 -ctime 			//change) em dias
+		 -atime				//acessado em dias
+		 -mmin				//metadados em mintos
+		 -cmin				//chage em minutos
+		 -amin				//acessado em minutos
+			-and 			//Condição
+			-or 			//Condição
+			-not 			//Condição
+		-exec {} \;			//Executa um comando em cima da linha  
+locate [diretório]				//Utiliza uma banco de dados para fazer a pequisa
+grep [letras] [arquivo]				//procura uma uma palavra ou frase no arquivo que vc escolhe
+
+-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_Gerenciamento de Processos-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_
+ps [opção]				//mostra os processoas abertos.
+   u					//mostra variás informaçoes sobre os processos
+   ux					//percorre todos processos em execução pelo usuário atual no sistema 
+   aux					//percorre todos processos em execução para todos usuários 
+   -eo 'op,op'				//escolhe as colunas a serem apresentadas
+   --sort=-coluna			//ordena de acordo com a coluna passada 
+top					//mostra os processos aberto, use 'k' para fexar programa, 'q' para sair
+[programa]&				//inicia o processo em segundo plano
+fg %[n]					//inicia a tarefa em primeiro plano. 'n' é o numero do processo não o id
+bg %[n]					//inicia a tarefa em segundo plano. 'n' é o numero do processo não o id
+jobs					//mostra processo em segundo plano 
+kill -[sinal] [pid]			//finaliza processo por pid. pag 142 tem tabela com sinais. Sinais mais usados: SIGKILL 9; SIGTERM 15
+killall -[sinal] [nome]			//finaliza processo através do nome. pag 142 tem tabela com sinais.
+
+-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-Ferramentas Admistrativas-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_
+página 170 tem vários comandos
+printer(system-config-printer)		//serve para configurar impressoras locas e de rede
+
+-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_Dar privilegios de Root a um usuário-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_
+sudors	 //edite esse arquivo com o 'vimsudo'. /acesse livro Pag:174 /ou site: 'https://www.todoespacoonline.com/w/2015/10/su-sudo-e-sudoers-no-linux/'
+
+pagina: 176 diretórios com comandos adminstrativos
+os diretóris mais importantes do seu sistema são: diretório 'inicial' (ele contem seus arquivos de configuraçã pessoal) e o diretório '/etc' (ele contem arquivos de configuração de todo sistema).

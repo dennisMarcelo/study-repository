@@ -1,0 +1,31 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    
+    <title>Mostrar Hora</title>
+    <script type="text/javascript">
+        window.addEventListener('load', function(){
+            
+            var $mostrar = document.getElementById('mostrar');
+            setInterval (function(){
+                var data = new Date;
+                var h = formatar(data.getHours());
+                var m = formatar(data.getMinutes());
+                var s = formatar(data.getSeconds());
+                $mostrar.innerHTML = h+":"+m+":"+s;
+            },1000);
+
+            function formatar(d){
+                return d<10 ? "0"+d : d;
+            }
+
+        })
+    
+    </script>
+</head>
+<body>
+    <div id="mostrar"></div>
+
+
+</body>
+</html>

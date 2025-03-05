@@ -1,0 +1,110 @@
+-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_executar script shell-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_
+bash script     //executa o script mesmo não tendo " #!/bin/bash ", ele meio que força a execução.
+./script        //coloque na primeira linha "#!/bin/bash", conceba permissão"chmod +x script". Opcionalment você pode coloca-lo no PATH.
+
+-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_nomear varia shell-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_
+VARIALVEL=value         //O shell é case sensitive
+varialvel='comando'     //Você pode armazenar a saída padrão de um comando ou uma sequecia de comandos dessa forma.
+
+-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_Atribuir valores as variáveis-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_
+variavel=ls             //se vc atribuir apenas 1 comando então atribua dessa forma e tenha acesso a variável assim: $variavel
+variavel='ls /'         //se colocar comandos de forma encadeada utilize dessa forma e tenha acesso a variável assim: $variavel
+variavel=$(ls /)        //da para colocar comandos de forma encadeada em uma variável assim também, mas para acessala utilize: echo $variavel
+
+-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_ecapando caracteres-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_
+echo '$variavel'        //escapa uma cadeia de caracteres
+echo \$variavel         //escapa um unico caractere (no caso o caractere é a variavel)
+
+-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_Parâmetros-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_
+$0                      //é  o caminho completo ou relativo do script.
+$#                      //informa quantos paretros seu script recebeu.
+$@                      //armazena todos os argumentos inseridos na linha de comando.
+$?                      //recebe o status de saída do último comando executado (0= comando executado com sucesso. quaquer numero diferente de zero indica erro)
+$1 à $n...              //são parametros disponiveis para vc armazernar informações, voce pode usar o comando read combinado com ele por exemplo
+
+-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_entrada de dados-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_
+read -p 'string' var1 var2 varn...	//você pode passar ou não um string. quando vc usa o read toda varáveis na linha são utilizadas para armazenar os dados de entrada 
+
+
+-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-Expanção de caracteres no bash-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_
+//Os mais comuns pag: 151
+${var:-value}			//se a variável estiver vazia então expande para valor
+${var#pattern}			
+${var##pattern}
+${var%pattern}
+${var%%pattern}
+
+_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-aritimética no shell -_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_
+//as variáveis não são tipadas, o que significa que tudo é string para o shell, mas na hora de calcular ele, se posivél, ele converte para int.
+let var=var		//declara a variável como inteira
+expr var
+bc var
+$((++x)) 		//incrementa antes de executar a linha de comando.
+$((x++))		//incrementa depois que executa a linha de comando. 
+
+_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-operadores relacionais-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_
+//Tabela com operadores na pagina 155.
+-eq				//operador de '='
+=				//operador igual a...
+!=				//operador diferente de...
+
+_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-estrutura condicional-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_
+if [ condition ] ; then           //condição 'if'
+fi
+
+if [ condition ] ; then		  //condição 'if else'
+else
+fi
+
+if [ condition ] ; then		  //condição 'encadeada else if'
+elif [ condition] ; then
+else
+fi
+
+<<<<<<< HEAD
+_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-operadores relacionais-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_
+	//page 155 have table with operators
+-eq				//operador de '='
+=				//operador igual a...
+!=				//operador diferente de...
+=======
+[teste] || ação 		  //executa um comando simples se o teste for falso 
+[teste] && ação			  //executa um comando simples se o teste for verdadeiro
+
+
+_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-Estrutura CASE-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_
+//exemplo na página 157
+case "var" in
+	resultado1)
+		intrução;;
+	resulatdo2)
+		instrução;;
+	*)
+		intrução;;
+esac
+
+_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-Loop "for...do"-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_
+//pagina 158 tem exemplos
+for var in LISTA
+do
+	intrução
+done
+
+//da pra usar a sintaxe C para controlar o loop
+for (( ; ; )) ; do
+
+done
+
+_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-Loop "while...do" e until-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_
+//condição while
+while [ condição ] ; 
+do
+	instrunção
+done
+>>>>>>> 0c4f5fc4ef85e57cb92a7771c4bb8b0a060273df
+
+//condição until 
+until [ condição ] ; 
+do 
+	instrução
+done

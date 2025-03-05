@@ -1,0 +1,55 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <h1>curso javaScript prototypes</h1>
+</body>
+<script>
+    //prototipos são a base para a herança em javaScript.
+    //atrvaés do prototype é possivel compatilhar 'métodos e propriedades' através de 'todas as instacias do objeto'.
+    
+    function animal(tipo){
+        if(tipo) this.tipo = tipo
+    }
+    //aqui é colocado o 'tipo' do animal no protoripo do 'objeto animal'.
+    //e então o 'metodo tipo' é passado por prototipo para o 'objeto animal'. 
+    animal.prototype.tipo = function(){
+        return console.log(this.tipo)
+    }
+    animal.prototype.tipo = function(){
+        return console.log('animal desconhecido')
+    }
+
+    var cachorro = new animal('mamifero')
+    var gato = new animal('mamifero')
+    var peixe = new animal()
+
+    console.log(cachorro, gato, peixe)
+    //chame no console o cachorro.tipo
+
+    //também é possivel 'pegar emprestado um método'.
+    //no exemplo abaixo a propriedade, que esta dentro da função , arguments
+    //tem acesso a todos os parametros que foram passados, mesmo que a função não esteja esperando parametros algum.
+    //é como se retornasse um array, entretando ele não é um array de fato.
+    //por isso quando você tenta usar o método '.forEach' nele, não funciona. O método forEach é um métdo que esta dentro do objeto array.
+    //mas voce pode pegar em prestado o método forEach do objeto array.
+
+    function teste(){
+        //veja como parece um array
+        //tente fazer isso arguments.forEach() 
+        //veja que não vai funcionar.
+        console.log(arguments)
+        
+        //agora tente isso
+        //aqui o pega o método 'forEach do objeto Array' e executa ele em outro contexto utilizando o 'método call'
+        Array.prototype.forEach.call(arguments, (e)=>{
+            console.log('agument: '+ e)
+        });
+    }
+    teste('ola', 'mundo', 2, 'true')
+</script>
+</html>

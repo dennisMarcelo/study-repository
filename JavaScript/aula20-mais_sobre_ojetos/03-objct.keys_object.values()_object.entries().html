@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+</head>
+<body>
+
+</body>
+
+    <script>
+        var obj1 = {
+                'nome': 'primeiro Objeto',
+                'apelido': 'primeirão',
+                'andar' : function(){
+                    console.log('andando')
+                }
+            }
+
+        //O 'Object.keys' retorna um array com as 'propriedades' do 'obj1'
+        var propriedades = Object.keys(obj1)
+        console.log(propriedades)
+        console.log('-------------------------------------------------------------------------')
+
+        //A qui é utilizado forEach para percorrer propriedades
+        propriedades.forEach( (e) => {
+            console.log('A propriedade é: '+ e)
+        })
+        console.log('-------------------------------------------------------------------------')
+
+        //daquie pra baixo tem tudo no ES2017, tome cuidado com o suporte
+        //'Object.values' é parecido com o 'object.keys' sendo que retorna os 'valores' das 'propriedades'.
+        var values = Object.values(obj1)
+        console.log(values)
+        console.log('--------------------------------------------------------------------------')
+
+        //'Object.entries()' retorna um array de arrays do obj1
+        var arrays = Object.entries(obj1)
+        console.log(arrays)
+        console.log(arrays[0])
+        console.log(arrays[0][0])
+        console.log(arrays[1])
+        console.log('--------------------------------------------------------------------------')
+
+    </script>
+</html>

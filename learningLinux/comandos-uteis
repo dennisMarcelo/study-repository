@@ -1,0 +1,24 @@
+ip addr show                   		//obtem o edereço de ip
+sudo su 				//entrar em modo de usuário root
+who					//mostra o usuáio do sistema
+hostname				//mostra o host do computador
+uname					//mostra nome do sistema (use -a, para mais opções-)
+date					//(exempolo: date +' %a, %b ,%c ,%d')
+alias					//Permite ver os comando que foram encurtados.
+history					//histórico de comandos
+pwd					//diretoório atual.
+	---execução de programas---
+ps 					//mostra os processoas abertos. utiliza como opção 'af' combinados
+top					//mostra os processos aberto, use 'k' para fexar programa, 'q' para sair
+kill [opção] [sinal] [pid]		//finaliza processo. opção -9
+killall [opção] [sinal] [processo]	//finaliza processo através do nome
+	
+	---manipulação de diretórios---
+ls [opção] [caminho]			//lista arquivos. -R(mostra o que tem no diretório e nos subdiretórios).
+pwd					//mostra o diretório atual.
+mkdir [opção] [caminho]			//cria diretórios. 
+rmdir [caminho]				//apaga arquivos.
+	---manipulção de arquivos---
+cat	[opção] [dieretório/caminho]	// Lê o arquivo. opções{-n (mostra o numero de linhas)}. Use o comando "zcat" para ver diretamente arquivos compactados com "gzip".
+ 
+

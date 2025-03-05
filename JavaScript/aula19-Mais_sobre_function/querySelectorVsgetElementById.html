@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<head> 
+<script>
+    //O querySelecto ele pega os elementos, mas depois parece que morre.
+    //Já como pricipal diferencial o getElementsByTagName ele continua sempre vivo.
+    //veja a baixo que quando é 'acrescentado' uma nova tag ou 'removida' ele continua pegando as informações no dom. 
+    window.addEventListener('DOMContentLoaded', function(){
+        var p1 = document.querySelectorAll('p')
+        var p2 = document.getElementsByTagName('p')
+        console.log("query:"+p1.length+"   get:"+p2.length)
+        debugger
+
+        var newP = document.createElement('p');
+        newP.textContent = 'Novo paragrafo'; 
+        document.body.appendChild(newP);
+        console.log("query:"+p1.length+"   get:"+p2.length)
+        debugger
+
+        document.body.innerHTML = '<h1>Apaguei todos paragrafos</h1>'
+        console.log("query:"+p1.length+"   get:"+p2.length)
+        debugger
+    })
+</script>
+</head>
+<body>
+    <p>esse é um teste com queryselecto e getElementsByTagName</p>
+    <p>esse é um teste com queryselecto e getElementsByTagName</p>
+    <p>esse é um teste com queryselecto e getElementsByTagName</p>
+    <p>esse é um teste com queryselecto e getElementsByTagName</p>
+    <p>esse é um teste com queryselecto e getElementsByTagName</p>
+    <p>esse é um teste com queryselecto e getElementsByTagName</p>
+    <p>esse é um teste com queryselecto e getElementsByTagName</p>
+    <p>esse é um teste com queryselecto e getElementsByTagName</p>
+    <p>esse é um teste com queryselecto e getElementsByTagName</p>
+    <p>esse é um teste com queryselecto e getElementsByTagName</p>
+</body>

@@ -1,0 +1,36 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <h1>herança com prototype</h1>    
+</body>
+<script>
+    //classe por padrão começa com letra Maiúscula
+    //É bom pesquisar mais sobre 'herança em javaScript'. o curso que vc ta vendo não é muito bom em explicar isso.
+    function Animal(tipo){
+        if(tipo) this.tipo = tipo
+    }
+    
+    function Cachorro(nome, tipo){
+        this.nome = nome;
+        Animal.call(this, tipo)
+    }
+    
+
+    Animal.prototype.tipo = function(){
+        return console.log(this.tipo)
+    }
+    Animal.prototype.tipo = function(){
+        return console.log('animal desconhecido')
+    }
+    
+
+    Cachorro.prototype = new Animal();
+    var toto = new Cachorro('toto', 'mamifero');    
+    console.log(toto)
+</script>
+</html>

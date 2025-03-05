@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<head>
+<script>
+    window.addEventListener('load', function(){
+        //em javascript herança funciona através de prototipos
+        var obj1 = {
+            'nome': 'obj1',
+            'valor': 10,
+        }
+        var obj2 = Object.create(obj1)
+        obj2.nome = 'obj2';
+        obj2.apelido = 'segundo objeto';
+
+        //O atributo valor tem somente em obj1, mas aparece em obj2.
+        //O 'in' percorre toda cadeia de 'prototipos', por isso ele encontra valor
+        console.log('valor' in obj2)
+        console.log('-----------------------------------------------------------')
+
+        //para saber quais elementos estão somente dentro do obj2, você precisa usar o 'hasOwnProperty()'
+        for (var prop in obj2){
+            if(obj2.hasOwnProperty(prop)){
+                console.log(prop)
+                console.log(obj2[prop])
+                console.log('------------------------------------------------------------------------------')
+            }
+        }
+
+    })
+</script>
+</head>
+<body>
+
+</body>

@@ -1,0 +1,53 @@
+body{
+    background-color: rgb(106, 235, 207);
+
+}
+.modal-container{
+    background-color:rgb(0,0,0,.5);
+    width:100vw;
+    height:100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    z-index: 2000; 
+    display: none;
+}
+.modal-container.mostrar{
+    display: flex
+}
+
+.modal-menssagem{
+    color:rgb(255, 238, 0);
+    background-color:rgb(250, 0, 0);
+    width: 60%;
+    min-width: 300px;
+    height: 200px;
+    text-align: center;
+    border:10px solid rgb(240, 89, 89);
+    box-shadow: 5px 5px 10px 2px red;
+    font-size:50px;
+    position: static
+     
+}
+#db1-box{
+    
+    width: 50px;
+    position: relative;
+    left:20%
+}
+#db2-box{
+    width: 50px;
+    position:relative;
+    bottom: 315px; left:55%
+
+}
+#text-box{
+    width: 50px;
+    position: relative;
+    bottom: 150px; left:35%;
+    
+}
+

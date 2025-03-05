@@ -1,0 +1,36 @@
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Extends</title>
+</head>
+<body>
+    
+</body>
+<script>
+        function BankAccunt(name, number){
+            this.name = name;
+            this.number = number;
+            
+        }
+        
+        function ContaPoupanca(name, number){
+            //2 para fazer com que conta ContaPoupanca passe como parametro os dados recebidos utilize isso:
+            BankAccunt.call(this, name, number)
+            //Jamais amazene objetos em atributos, porque os objetos são passados por ferencia.
+            //o que siginifica que, se alguem tetar modificar o seu atributo certamente ira conseguir.
+            //No caso abaixo é passado 'number', não obejto, gracas ao getTime() que retorna number. 
+            const niver = new Date().getTime();
+            this.pegaNiver = function(){
+                return niver;
+            }
+        }
+        //Aqui é instaciado a 'Classe ContaPoupanca()''
+        var sa1 = new ContaPoupanca('dennis', 1)   
+        //Aqui é feita a herança utilizando 'setPrototypeOf()1,
+        //é passado como parametro o 'objeto sa1' e intaciando a 'classe BankAccunt'
+        Object.setPrototypeOf(sa1, new BankAccunt()) //1 perceba que na 'BankAccunt' eu não passei parametro nenhum. Va para 2.
+        console.log(sa1)
+</script>
+</html>

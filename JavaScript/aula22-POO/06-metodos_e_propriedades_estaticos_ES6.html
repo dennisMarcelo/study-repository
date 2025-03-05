@@ -1,0 +1,33 @@
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>métodos e propriedades estaticos ES6</title>
+</head>
+<body>
+    
+</body>
+<script>
+  
+  class contaPoupanca{
+        constructor(nome){
+           this.nome = nome;
+        }
+        //tecnica para criar 'atributos estaticas'.
+        static get juros(){ return 20;};
+        
+        static verTipo(){
+            return console.log("Esta é uma conta conta poupaça.")
+        }
+    }
+
+    let cP1 = new contaPoupanca('dennis')
+
+//sim! Agora juros somente faz parte de 'ContaPoupana', e não mais de cada uma das instania
+//por isso 'cP1.juros' retorna vazio
+console.log(cP1.jutos,)
+console.log(contaPoupanca.juros, )
+contaPoupanca.verTipo()
+</script>
+</html>

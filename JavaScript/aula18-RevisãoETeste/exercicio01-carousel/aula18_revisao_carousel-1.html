@@ -1,0 +1,122 @@
+<!doctype html>
+<html>
+    <head>
+        <title>Javascript Completo</title>
+        <meta charset="utf-8">
+        
+        <link href="carousel.css" rel="stylesheet">
+        <script src="../../talkme.js"></script> 
+    </head>
+    <body>
+
+        <main class="content">
+
+            <h1>Javascript Completo</h1>
+
+            <section class="carousel">
+              <div class="carousel__inner">
+                <div class="carousel__item"> <a href=""><img src="images/01.jpg" alt=""></a></div>
+                <div class="carousel__item"> <a href=""><img src="images/02.jpg" alt=""></a></div>
+                <div class="carousel__item"> <a href=""><img src="images/03.jpg" alt=""></a></div>
+                <div class="carousel__item"> <a href=""><img src="images/04.jpg" alt=""></a></div>
+              </div>
+              
+              <button class="carousel__btn carousel__btn--prev"> &lt; </button>
+              <button class="carousel__btn carousel__btn--next"> &gt; </button>
+              
+              <ul class="carousel__paginacao"></ul>
+            </section>
+        </main>
+        
+        <script>
+        
+            (function(){                
+                'use strict';
+                //declarando váriáveis               
+                    var $btnPrev = qs('.carousel__btn--prev');
+                    var $btnNext = qs('.carousel__btn--next');
+                    var $carousel = qs('.carousel')
+                    var $carouselInner = qs('.carousel__inner');
+                    var $carouselItens = qsl('.carousel__item');
+                    var $carouselPaginacao = qs('.carousel__paginacao')
+                    var qtdBanners = $carouselItens.length;
+                    var bannerAtual = 0;
+                    var intervalo = null;
+                //mostrar btn, hidden, intervalo, block btn
+                    $carousel.style.overflowX = "hidden";
+                    $btnPrev.style.display = "block";
+                    $btnNext.style.display = "block";
+                    ativarBullets();
+                    iniciarInetervalo();
+                    desabilitarBotao(bannerAtual)
+                //add eventos para os botões
+                    $btnPrev.addEventListener('click', showPrev);
+                    $btnNext.addEventListener('click', showNext);
+                //funções dos botões
+                    function showPrev(){
+                       bannerAtual--
+                        mostrarBunner(bannerAtual)
+                    }
+                    function showNext(){
+                        bannerAtual++
+                        mostrarBunner(bannerAtual)
+                    } 
+                //funcões do bullets
+                    function ativarBullets(){
+                        for(var i=0; i<qtdBanners; i++){
+                            adicionando(i)
+                        }
+                    }
+                    function adicionando(i){    
+                        var $li = document.createElement('li')
+                        if(i === 0) $li.className = 'atual'
+                        $carouselPaginacao.appendChild($li);
+                        $li.addEventListener('click', function(){
+                            bannerAtual = i;
+                            mostrarBunner(bannerAtual);
+                        });
+                    }
+                    function atualizaPaginaca(){
+                        $carouselPaginacao.querySelector('li.atual').removeAttribute('class')
+                        $carouselPaginacao.querySelectorAll('li')[bannerAtual].className = 'atual'
+                    }
+                //
+                    function mostrarBunner(bannerAtual){
+                        limparInterval()
+                        desabilitarBotao(bannerAtual)
+                        var largura = getComputedStyle($carouselItens[0]).width;
+                        var novaPosicao = 0 
+                        largura = parseInt(largura);
+                        novaPosicao= largura*bannerAtual*-1;
+                        if (novaPosicao > 0 ){
+                            return ;
+                        }
+                        $carouselInner.style.transform = 'translateX('+novaPosicao+'px)'
+                        
+                        atualizaPaginaca()
+                        iniciarInetervalo()
+                    }
+                    //teste para saber se o botão deve ou não ser desabilitado
+                    function desabilitarBotao(bannerAtual){
+                        $btnPrev.disabled = !bannerAtual > 0;
+                        $btnNext.disabled = bannerAtual === qtdBanners -1;
+                    }
+                    //
+                    
+                    function iniciarInetervalo(){
+                        intervalo = setInterval(()=>{
+                            bannerAtual++
+                            if(bannerAtual>=qtdBanners) bannerAtual = 0
+                            mostrarBunner(bannerAtual)          
+                        },2000)    
+                    }
+                    
+                    function limparInterval(){
+                        clearInterval(intervalo)
+                    }
+            })()
+        
+        </script>
+        
+    </body>
+</html>
