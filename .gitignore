@@ -316,6 +316,8 @@ ClientBin/
 *.publishsettings
 modulesbin/
 tempbin/
+*/bin
+*/obj
 
 # EPiServer Site file (VPP)
 AppData/
